@@ -1,0 +1,171 @@
+<?php include("config.php"); ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Akademik</title>
+</head>
+
+<body>
+    <header>
+        <h3>Customer</h3>
+    </header>
+
+
+
+    <br>
+
+    <table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+        	<th>Nama</th>
+<th>Umur</th>
+<th>Alamat</th>
+<th>Telp</th>
+<th>Email</th>
+<th>Tanggal Lahir</th>
+<th>Kode Pos</th>
+<th>Nama Ibu Kandung</th>
+<th>Gender</th>
+</tr>
+    </thead>
+    <tbody>
+
+        <?php
+        $sql = "SELECT * FROM customer";
+        $query = mysqli_query($db, $sql);
+
+        while($customer = mysqli_fetch_array($query)){
+            echo "<tr>";
+
+            echo "<td>".$customer['id_customer']."</td>";
+            echo "<td>".$customer['username']."</td>";
+            echo "<td>".$customer['password']."</td>";
+            echo "<td>".$customer['nama']."</td>";
+            echo "<td>".$customer['umur']."</td>";
+            echo "<td>".$customer['alamat']."</td>";
+            echo "<td>".$customer['telp']."</td>";
+            echo "<td>".$customer['email']."</td>";
+            echo "<td>".$customer['tgl_lahir']."</td>";
+            echo "<td>".$customer['kode_pos']."</td>";
+            echo "<td>".$customer['nama_ibu_k']."</td>";
+            echo "<td>".$customer['gender']."</td>";            
+            echo "</tr>";
+        }
+        ?>
+
+    </tbody>
+    </table>
+    <header>
+        <h3>Mahasiswa</h3>
+    </header>
+
+
+
+ 
+
+    <table border="1">
+    <thead>
+        <tr>
+            <th>Nim</th>
+            <th>Nama</th>
+            <th>Progdi</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php
+        $sql = "SELECT * FROM mahasiswa";
+        $query = mysqli_query($db, $sql);
+
+        while($mahasiswa = mysqli_fetch_array($query)){
+            echo "<tr>";
+
+            echo "<td>".$mahasiswa['nim']."</td>";
+            echo "<td>".$mahasiswa['nama']."</td>";
+            echo "<td>".$mahasiswa['prodi']."</td>";
+            
+            echo "</tr>";
+        }
+        ?>
+
+    </tbody>
+    </table>
+<header>
+        <h3>Mata Kuliah</h3>
+    </header>
+
+
+
+    <br>
+
+    <table border="1">
+    <thead>
+        <tr>
+            <th>Kode Mata Kuliah</th>
+            <th>Nama Mata Kuliah</th>
+            <th>SKS</th>
+        	<th>Prodi</th>
+</tr>
+    </thead>
+    <tbody>
+
+        <?php
+        $sql = "SELECT * FROM matakuliah";
+        $query = mysqli_query($db, $sql);
+
+        while($matakuliah = mysqli_fetch_array($query)){
+            echo "<tr>";
+
+            echo "<td>".$matakuliah['kdmk']."</td>";
+            echo "<td>".$matakuliah['nmmk']."</td>";
+            echo "<td>".$matakuliah['sks']."</td>";
+		echo "<td>".$matakuliah['prodi']."</td>";
+            
+            echo "</tr>";
+        }
+        ?>
+
+    </tbody>
+    </table>
+            <h3>Nilai</h3>
+    </header>
+
+
+
+    <br>
+
+    <table border="1">
+    <thead>
+        <tr>
+            <th>THAKD</th>
+            <th>NIM</th>
+            <th>Kode Mata Kuliah</th>
+        	<th>Nilai</th>
+</tr>
+    </thead>
+    <tbody>
+
+        <?php
+        $sql = "SELECT * FROM nilai";
+        $query = mysqli_query($db, $sql);
+
+        while($nilai = mysqli_fetch_array($query)){
+            echo "<tr>";
+
+            echo "<td>".$nilai['thakd']."</td>";
+            echo "<td>".$nilai['nim']."</td>";
+            echo "<td>".$nilai['kdmk']."</td>";
+		echo "<td>".$nilai['nilai']."</td>";
+            
+            echo "</tr>";
+        }
+        ?>
+
+    </tbody>
+    </table>
+    </body>
+</html>
